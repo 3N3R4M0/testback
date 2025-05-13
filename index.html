@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Essentials -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>thebackrooms.net – Play The Backrooms Game</title>
+
+  <!-- Assets for Unity WebGL build -->
+  <link rel="shortcut icon" href="https://thebackrooms.net/backrooms/TemplateData/favicon.ico">
+  <link rel="stylesheet" href="https://thebackrooms.net/backrooms/TemplateData/style.css">
+
+  <!-- Google Font for headings/body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Unity Loader & Progress -->
+  <script src="https://thebackrooms.net/backrooms/TemplateData/UnityProgress.js"></script>
+  <script src="https://thebackrooms.net/backrooms/Build/UnityLoader.js"></script>
+
+  <style>
+    /* ========= Base Reset ========= */
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+    /* ========= Global ========= */
+    html,body{height:100%;font-family:"Poppins",Arial,sans-serif;color:#111}
+    body{background:radial-gradient(circle at center,#ebe7cf 0%,#c0b67c 35%,#6a5d22 75%,#211a00 100%);display:flex;flex-direction:column;align-items:center;min-height:100vh;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* ========= Header ========= */
+    header{width:100%;padding:1rem 0;display:flex;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.25)}
+    .logo{display:flex;align-items:center;gap:.6rem;font-size:2rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#f5f5f5}
+    .logo svg{flex-shrink:0}
+
+    /* ========= Main ========= */
+    main{flex:1;width:100%;max-width:1200px;padding:2.5rem 1rem 4rem;display:flex;flex-direction:column;align-items:center;gap:3rem}
+
+    .glass-wrapper{width:100%;padding:3rem 2.5rem;border-radius:32px;background:rgba(255,255,255,.12);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.25);box-shadow:0 6px 28px rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center;gap:2.5rem}
+
+    /* ===== Unity WebGL Player ===== */
+    .webgl-container{width:100%;max-width:1200px;display:flex;flex-direction:column;align-items:center}
+    #gameContainer{width:1200px;height:750px;border-radius:28px;overflow:hidden}
+    .footer-controls{display:flex;justify-content:flex-end;width:100%;max-width:1200px;margin-top:10px;align-items:center}
+    .fullscreen{background-image:url('TemplateData/fullscreen.png');background-size:contain;width:48px;height:48px;cursor:pointer}
+
+    /* ===== Article Section ===== */
+    article{width:100%;max-width:1200px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.35);border-radius:28px;padding:2.5rem 3rem;color:#1a1a1a;line-height:1.8}
+    article h2{font-size:2rem;font-weight:600;margin-bottom:1.2rem}
+    article h3{font-size:1.4rem;font-weight:600;margin:1.6rem 0 .8rem}
+    article p{font-size:1.05rem;margin-bottom:1rem}
+    article ul{margin-left:1.4rem;list-style:disc;font-size:1.05rem}
+    article li{margin-bottom:.6rem}
+    kbd{background:#eee;border-radius:4px;border:1px solid #ccc;padding:0 6px;font-size:.85rem;font-family:"Courier New",monospace}
+
+    /* ========= Footer ========= */
+    footer{width:100%;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.2);padding:1.2rem 0 1.8rem;text-align:center;color:#fafafa;font-size:.95rem}
+    footer nav ul{list-style:none;display:flex;justify-content:center;gap:2rem;margin-bottom:.8rem;flex-wrap:wrap}
+    footer nav a{color:#fafafa;font-weight:500}
+
+    /* ========= Responsive ========= */
+    @media(max-width:1400px){#gameContainer{width:1000px;height:625px}}
+    @media(max-width:900px){#gameContainer{width:100%;height:auto}}
+    @media(max-width:600px){.logo{font-size:1.6rem}article{padding:1.8rem 1.4rem}#gameContainer{height:450px}}
+  </style>
+
+  <!-- Instantiate Unity after DOM ready to avoid layout shift -->
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      window.gameInstance = UnityLoader.instantiate("gameContainer","Build/Backrooms v1.5 - WebGL.json",{onProgress:UnityProgress});
+    });
+  </script>
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    <a href="/" class="logo" aria-label="TheBackrooms.net Home">
+      <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="8" fill="#e6d965" stroke="#a89e4b" stroke-width="4"/>
+        <rect x="14" y="14" width="36" height="36" rx="6" fill="none" stroke="#a89e4b" stroke-width="4"/>
+      </svg>
+      <span>thebackrooms.net</span>
+    </a>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main>
+    <div class="glass-wrapper">
+      <!-- WebGL Player Container -->
+      <div class="webgl-container">
+        <div id="gameContainer" title="Play The Backrooms Game"></div>
+        <div class="footer-controls">
+          <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)" aria-label="Enter Fullscreen"></div>
+        </div>
+      </div>
+
+      <!-- Article -->
+      <article>
+        <h2>The Backrooms – Lose Yourself, Find the Exit</h2>
+        <p>Have you ever <em>noclipped</em> out of reality and found yourself in an endless, musty office complex? That urban legend is the inspiration behind <strong>The Backrooms</strong>, a psychological horror‑exploration game that thrusts you into a labyrinth of stained carpet, buzzing lights, and unsettling silence. Here, reality blurs, geometry loops on itself, and “something” is always listening just beyond the fluorescent glow.</p>
+
+        <h3>Origins &amp; Mythos</h3>
+        <p>The Backrooms meme originated on image boards: “If you're not careful and you noclip out of reality in the wrong areas, you'll end up here…” —a place outside conventional existence. Our game re‑creates that liminal fear, expanding the mythos with multiple <strong>Levels</strong>, each adding their own hazards and hidden lore documents for intrepid explorers to piece together.</p>
+
+        <h3>Core Gameplay Loop</h3>
+        <p>Your mission is deceptively simple: <em>find an exit before the entity finds you</em>. Every round is procedurally generated, guaranteeing unique paths and item placements.</p>
+        <ul>
+          <li><strong>Explore</strong> – Scout rooms, vents, and service corridors for supplies.</li>
+          <li><strong>Survive</strong> – Keep your <em>Sanity</em> gauge high by staying in well‑lit zones.</li>
+          <li><strong>Outwit</strong> – Each entity has audio/visual cues. Learn them, distract them, live another minute.</li>
+          <li><strong>Escape</strong> – Activate elevators, crack keypad codes, or locate warped doorways to descend—or ascend—to the next Level.</li>
+        </ul>
+
+        <h3>Controls Cheat‑Sheet</h3>
+        <p><kbd>WASD</kbd> / <kbd>Arrow Keys</kbd> to move, <kbd>Shift</kbd> to sprint, <kbd>F</kbd> toggles your flashlight, and <kbd>E</kbd> interacts with objects.</p>
+
+        <h3>Tips for New Explorers</h3>
+        <ul>
+          <li>Always note the hum pitch—silence often precedes a threat.</li>
+          <li>Mark your path with dropped items to avoid running in circles.</li>
+          <li>Almond Water restores sanity and a bit of health—<em>but</em> only drink sealed bottles.</li>
+          <li>Crouch‑walk near vents; some creatures navigate the ductwork.</li>
+        </ul>
+
+        <p>Whether you’re a speed‑runner hunting secret endings or a horror fan soaking in liminal dread, <strong>The Backrooms</strong> invites you to dwell where you were never meant to be—and maybe, just maybe, escape with your mind intact.</p>
+      </article>
+    </div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <nav aria-label="Footer Navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <p>&copy; 2025 thebackrooms.net. All rights reserved.</p>
+  </footer>
+</body>
+</html>
