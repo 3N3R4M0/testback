@@ -43,7 +43,7 @@
     .webgl-container{width:100%;max-width:1200px;display:flex;flex-direction:column;align-items:center}
     #gameContainer{width:1200px;height:750px;border-radius:28px;overflow:hidden}
     .footer-controls{display:flex;justify-content:flex-end;width:100%;max-width:1200px;margin-top:10px;align-items:center}
-    .fullscreen{background-image:url('TemplateData/fullscreen.png');background-size:contain;width:48px;height:48px;cursor:pointer}
+    .fullscreen{background-image:url('https://thebackrooms.net/backrooms/TemplateData/fullscreen.png');background-size:contain;width:48px;height:48px;cursor:pointer}
 
     /* ===== Article Section ===== */
     article{width:100%;max-width:1200px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.35);border-radius:28px;padding:2.5rem 3rem;color:#1a1a1a;line-height:1.8}
@@ -68,14 +68,14 @@
   <!-- Instantiate Unity after DOM ready to avoid layout shift -->
   <script>
     document.addEventListener('DOMContentLoaded',()=>{
-      window.gameInstance = UnityLoader.instantiate("gameContainer","Build/Backrooms v1.5 - WebGL.json",{onProgress:UnityProgress});
+      window.gameInstance = UnityLoader.instantiate("gameContainer","https://thebackrooms.net/backrooms/Build/Backrooms v1.5 - WebGL.json",{onProgress:UnityProgress});
     });
   </script>
 </head>
 <body>
   <!-- ===== Header ===== -->
   <header>
-    <a href="/" class="logo" aria-label="TheBackrooms.net Home">
+    <a href="https://thebackrooms.net/backrooms/" class="logo" aria-label="TheBackrooms.net Home">
       <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect x="2" y="2" width="60" height="60" rx="8" fill="#e6d965" stroke="#a89e4b" stroke-width="4"/>
         <rect x="14" y="14" width="36" height="36" rx="6" fill="none" stroke="#a89e4b" stroke-width="4"/>
@@ -132,9 +132,9 @@
   <footer>
     <nav aria-label="Footer Navigation">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/terms.html">Terms</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="https://thebackrooms.net/backrooms/">Home</a></li>
+        <li><a href="https://thebackrooms.net/backrooms/terms.html">Terms</a></li>
+        <li><a href="https://thebackrooms.net/backrooms/contact.html">Contact</a></li>
       </ul>
     </nav>
     <p>&copy; 2025 thebackrooms.net. All rights reserved.</p>
