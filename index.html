@@ -36,14 +36,42 @@
 
     /* ========= Main ========= */
     main{flex:1;width:100%;max-width:1200px;padding:2.5rem 1rem 4rem;display:flex;flex-direction:column;align-items:center;gap:3rem}
-
+    
     .glass-wrapper{width:100%;padding:3rem 2.5rem;border-radius:32px;background:rgba(255,255,255,.12);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.25);box-shadow:0 6px 28px rgba(0,0,0,.35);display:flex;flex-direction:column;align-items:center;gap:2.5rem}
-
+    
     /* ===== Unity WebGL Player ===== */
-    .webgl-container{width:100%;max-width:1200px;display:flex;flex-direction:column;align-items:center}
-    #gameContainer{width:1200px;height:750px;border-radius:28px;overflow:hidden}
-    .footer-controls{display:flex;justify-content:flex-end;width:100%;max-width:1200px;margin-top:10px;align-items:center}
-    .fullscreen{background-image:url('https://thebackrooms.net/backrooms/TemplateData/fullscreen.png');background-size:contain;width:48px;height:48px;cursor:pointer}
+    .webgl-container {
+      width: 100%;
+      max-width: 1200px; /* Ensure it is the same width as the main container */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    
+    #gameContainer {
+      width: 100%;
+      height: 750px; /* Adjusted height for consistency */
+      border-radius: 28px;
+      overflow: hidden;
+    }
+    
+    .footer-controls {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 10px;
+      align-items: center;
+    }
+    
+    .fullscreen {
+      background-image: url('https://thebackrooms.net/backrooms/TemplateData/fullscreen.png');
+      background-size: contain;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+    }
 
     /* ===== Article Section ===== */
     article{width:100%;max-width:1200px;background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.35);border-radius:28px;padding:2.5rem 3rem;color:#1a1a1a;line-height:1.8}
